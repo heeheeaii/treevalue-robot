@@ -1,0 +1,150 @@
+08:49:37.180 INFO  Starting ProductApplication using Java 21.0.1 with PID 24680 (D:\tmp\download\zkexample\robot-master\product-service\target\classes started by hee in D:\tmp\download\zkexample\robot-master)
+08:49:37.182 INFO  No active profile set, falling back to 1 default profile: "default"
+08:49:37.690 INFO  BeanFactory id=1c819ecc-e5b6-39c0-95db-9b550760c66d
+08:49:37.874 INFO  Tomcat initialized with port(s): 10000 (http)
+08:49:37.879 INFO  Initializing ProtocolHandler ["http-nio-10000"]
+08:49:37.880 INFO  Starting service [Tomcat]
+08:49:37.881 INFO  Starting Servlet engine: [Apache Tomcat/10.1.13]
+08:49:37.944 INFO  Initializing Spring embedded WebApplicationContext
+08:49:37.945 INFO  Root WebApplicationContext: initialization completed in 731 ms
+08:49:37.980 DEBUG Filter 'requestLoggingFilter' configured for use
+08:49:39.276 INFO  Cannot determine local hostname
+08:49:40.300 INFO  Cannot determine local hostname
+08:49:40.342 WARN  Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+08:49:40.375 INFO  Starting ProtocolHandler ["http-nio-10000"]
+08:49:40.384 INFO  Tomcat started on port(s): 10000 (http) with context path ''
+08:49:41.395 INFO  Cannot determine local hostname
+08:49:41.475 INFO  Started ProductApplication in 6.028 seconds (process running for 6.545)
+08:59:52.053 WARN  Session 0x1001484ab73001c for sever localhost/127.0.0.1:2181, Closing socket connection. Attempting reconnect except it is a SessionExpiredException.
+org.apache.zookeeper.ClientCnxn$EndOfStreamException: Unable to read additional data from server sessionid 0x1001484ab73001c, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+08:59:52.908 INFO  State change: SUSPENDED
+08:59:54.806 INFO  Opening socket connection to server localhost/[0:0:0:0:0:0:0:1]:2181.
+08:59:54.806 INFO  SASL config status: Will not attempt to authenticate using SASL (unknown error)
+08:59:54.807 INFO  Socket connection established, initiating session, client: /[0:0:0:0:0:0:0:1]:57066, server: localhost/[0:0:0:0:0:0:0:1]:2181
+08:59:54.812 WARN  Unable to reconnect to ZooKeeper service, session 0x1001484ab73001c has expired
+08:59:54.812 WARN  Session expired event received
+08:59:54.812 WARN  Session 0x1001484ab73001c for sever localhost/[0:0:0:0:0:0:0:1]:2181, Closing socket connection. Attempting reconnect except it is a SessionExpiredException.
+org.apache.zookeeper.ClientCnxn$SessionExpiredException: Unable to reconnect to ZooKeeper service, session 0x1001484ab73001c has expired
+	at org.apache.zookeeper.ClientCnxn$SendThread.onConnected(ClientCnxn.java:1406)
+	at org.apache.zookeeper.ClientCnxnSocket.readConnectResult(ClientCnxnSocket.java:154)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:84)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+08:59:54.813 INFO  Initiating client connection, connectString=localhost:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@73ee7919
+08:59:54.816 INFO  jute.maxbuffer value is 1048575 Bytes
+08:59:54.816 INFO  zookeeper.request.timeout value is 0. feature enabled=false
+08:59:54.816 INFO  State change: LOST
+08:59:54.817 INFO  EventThread shut down for session: 0x1001484ab73001c
+08:59:54.817 INFO  Opening socket connection to server localhost/127.0.0.1:2181.
+08:59:54.818 INFO  SASL config status: Will not attempt to authenticate using SASL (unknown error)
+08:59:54.818 INFO  Socket connection established, initiating session, client: /127.0.0.1:57067, server: localhost/127.0.0.1:2181
+08:59:54.829 INFO  Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1001484ab73001f, negotiated timeout = 40000
+08:59:54.830 INFO  State change: RECONNECTED
+08:59:54.866 INFO  New config event received: {}
+09:33:54.265 WARN  Session 0x1001484ab73001f for sever localhost/127.0.0.1:2181, Closing socket connection. Attempting reconnect except it is a SessionExpiredException.
+org.apache.zookeeper.ClientCnxn$EndOfStreamException: Unable to read additional data from server sessionid 0x1001484ab73001f, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+09:33:54.372 INFO  State change: SUSPENDED
+09:33:55.946 INFO  Opening socket connection to server localhost/127.0.0.1:2181.
+09:33:55.946 INFO  SASL config status: Will not attempt to authenticate using SASL (unknown error)
+09:33:55.947 INFO  Socket connection established, initiating session, client: /127.0.0.1:52818, server: localhost/127.0.0.1:2181
+09:33:55.950 WARN  Unable to reconnect to ZooKeeper service, session 0x1001484ab73001f has expired
+09:33:55.950 WARN  Session expired event received
+09:33:55.950 WARN  Session 0x1001484ab73001f for sever localhost/127.0.0.1:2181, Closing socket connection. Attempting reconnect except it is a SessionExpiredException.
+org.apache.zookeeper.ClientCnxn$SessionExpiredException: Unable to reconnect to ZooKeeper service, session 0x1001484ab73001f has expired
+	at org.apache.zookeeper.ClientCnxn$SendThread.onConnected(ClientCnxn.java:1406)
+	at org.apache.zookeeper.ClientCnxnSocket.readConnectResult(ClientCnxnSocket.java:154)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:84)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+09:33:55.950 INFO  Initiating client connection, connectString=localhost:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@73ee7919
+09:33:55.952 INFO  jute.maxbuffer value is 1048575 Bytes
+09:33:55.952 INFO  zookeeper.request.timeout value is 0. feature enabled=false
+09:33:55.953 INFO  State change: LOST
+09:33:55.953 INFO  EventThread shut down for session: 0x1001484ab73001f
+09:33:55.954 INFO  Opening socket connection to server localhost/[0:0:0:0:0:0:0:1]:2181.
+09:33:55.954 INFO  SASL config status: Will not attempt to authenticate using SASL (unknown error)
+09:33:55.954 INFO  Socket connection established, initiating session, client: /[0:0:0:0:0:0:0:1]:52823, server: localhost/[0:0:0:0:0:0:0:1]:2181
+09:33:55.995 INFO  Session establishment complete on server localhost/[0:0:0:0:0:0:0:1]:2181, session id = 0x1001484ab730023, negotiated timeout = 40000
+09:33:55.995 INFO  State change: RECONNECTED
+09:33:56.067 INFO  New config event received: {}
+11:20:15.992 WARN  Session 0x1001484ab730023 for sever localhost/[0:0:0:0:0:0:0:1]:2181, Closing socket connection. Attempting reconnect except it is a SessionExpiredException.
+org.apache.zookeeper.ClientCnxn$EndOfStreamException: Unable to read additional data from server sessionid 0x1001484ab730023, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+11:20:16.149 INFO  State change: SUSPENDED
+11:20:17.267 INFO  Opening socket connection to server localhost/127.0.0.1:2181.
+11:20:17.267 INFO  SASL config status: Will not attempt to authenticate using SASL (unknown error)
+11:20:17.269 INFO  Socket connection established, initiating session, client: /127.0.0.1:55622, server: localhost/127.0.0.1:2181
+11:20:17.274 WARN  Unable to reconnect to ZooKeeper service, session 0x1001484ab730023 has expired
+11:20:17.274 WARN  Session 0x1001484ab730023 for sever localhost/127.0.0.1:2181, Closing socket connection. Attempting reconnect except it is a SessionExpiredException.
+org.apache.zookeeper.ClientCnxn$SessionExpiredException: Unable to reconnect to ZooKeeper service, session 0x1001484ab730023 has expired
+	at org.apache.zookeeper.ClientCnxn$SendThread.onConnected(ClientCnxn.java:1406)
+	at org.apache.zookeeper.ClientCnxnSocket.readConnectResult(ClientCnxnSocket.java:154)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:84)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+11:20:17.275 WARN  Session expired event received
+11:20:17.275 INFO  Initiating client connection, connectString=localhost:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@73ee7919
+11:20:17.281 INFO  jute.maxbuffer value is 1048575 Bytes
+11:20:17.282 INFO  zookeeper.request.timeout value is 0. feature enabled=false
+11:20:17.283 INFO  State change: LOST
+11:20:17.284 INFO  EventThread shut down for session: 0x1001484ab730023
+11:20:17.293 INFO  Opening socket connection to server localhost/[0:0:0:0:0:0:0:1]:2181.
+11:20:17.293 INFO  SASL config status: Will not attempt to authenticate using SASL (unknown error)
+11:20:17.294 INFO  Socket connection established, initiating session, client: /[0:0:0:0:0:0:0:1]:55623, server: localhost/[0:0:0:0:0:0:0:1]:2181
+11:20:17.302 INFO  Session establishment complete on server localhost/[0:0:0:0:0:0:0:1]:2181, session id = 0x1001484ab730025, negotiated timeout = 40000
+11:20:17.303 INFO  State change: RECONNECTED
+11:20:17.322 INFO  New config event received: {}
+12:36:50.981 WARN  Session 0x1001484ab730025 for sever localhost/[0:0:0:0:0:0:0:1]:2181, Closing socket connection. Attempting reconnect except it is a SessionExpiredException.
+org.apache.zookeeper.ClientCnxn$EndOfStreamException: Unable to read additional data from server sessionid 0x1001484ab730025, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+12:36:51.091 INFO  State change: SUSPENDED
+12:36:52.930 INFO  Opening socket connection to server localhost/[0:0:0:0:0:0:0:1]:2181.
+12:36:52.930 INFO  SASL config status: Will not attempt to authenticate using SASL (unknown error)
+12:36:52.932 INFO  Socket connection established, initiating session, client: /[0:0:0:0:0:0:0:1]:60707, server: localhost/[0:0:0:0:0:0:0:1]:2181
+12:36:52.937 WARN  Session expired event received
+12:36:52.937 WARN  Unable to reconnect to ZooKeeper service, session 0x1001484ab730025 has expired
+12:36:52.937 WARN  Session 0x1001484ab730025 for sever localhost/[0:0:0:0:0:0:0:1]:2181, Closing socket connection. Attempting reconnect except it is a SessionExpiredException.
+org.apache.zookeeper.ClientCnxn$SessionExpiredException: Unable to reconnect to ZooKeeper service, session 0x1001484ab730025 has expired
+	at org.apache.zookeeper.ClientCnxn$SendThread.onConnected(ClientCnxn.java:1406)
+	at org.apache.zookeeper.ClientCnxnSocket.readConnectResult(ClientCnxnSocket.java:154)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:84)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+12:36:52.938 INFO  Initiating client connection, connectString=localhost:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@73ee7919
+12:36:52.942 INFO  jute.maxbuffer value is 1048575 Bytes
+12:36:52.943 INFO  zookeeper.request.timeout value is 0. feature enabled=false
+12:36:52.943 INFO  State change: LOST
+12:36:52.944 INFO  EventThread shut down for session: 0x1001484ab730025
+12:36:52.947 INFO  Opening socket connection to server localhost/127.0.0.1:2181.
+12:36:52.947 INFO  SASL config status: Will not attempt to authenticate using SASL (unknown error)
+12:36:52.949 INFO  Socket connection established, initiating session, client: /127.0.0.1:60709, server: localhost/127.0.0.1:2181
+12:36:52.954 INFO  Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1001484ab73002e, negotiated timeout = 40000
+12:36:52.954 INFO  State change: RECONNECTED
+12:36:52.974 INFO  New config event received: {}
+15:30:26.811 INFO  Starting ProductApplication using Java 21.0.1 with PID 19088 (D:\tmp\download\zkexample\robot-master\product-service\target\classes started by hee in D:\tmp\download\zkexample\robot-master)
+15:30:26.815 INFO  No active profile set, falling back to 1 default profile: "default"
+15:30:27.383 INFO  BeanFactory id=1c819ecc-e5b6-39c0-95db-9b550760c66d
+15:30:27.597 INFO  Tomcat initialized with port(s): 10000 (http)
+15:30:27.605 INFO  Initializing ProtocolHandler ["http-nio-10000"]
+15:30:27.607 INFO  Starting service [Tomcat]
+15:30:27.607 INFO  Starting Servlet engine: [Apache Tomcat/10.1.13]
+15:30:27.658 INFO  Initializing Spring embedded WebApplicationContext
+15:30:27.658 INFO  Root WebApplicationContext: initialization completed in 810 ms
+15:30:27.688 DEBUG Filter 'requestLoggingFilter' configured for use
+15:30:29.015 INFO  Cannot determine local hostname
+15:30:30.033 INFO  Cannot determine local hostname
+15:30:30.091 WARN  Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+15:30:30.134 INFO  Starting ProtocolHandler ["http-nio-10000"]
+15:30:30.144 INFO  Tomcat started on port(s): 10000 (http) with context path ''
+15:30:31.152 INFO  Cannot determine local hostname
+15:30:31.250 INFO  Started ProductApplication in 6.381 seconds (process running for 7.173)

@@ -1,0 +1,129 @@
+06:28:51.862 INFO  Starting TvrPreviewApplication using Java 21.0.1 with PID 3900 (D:\treevalue\treevalue-robot\tvr-preview-service\target\classes started by hee in D:\treevalue\treevalue-robot)
+06:28:51.868 INFO  The following 2 profiles are active: "mongodb", "web"
+06:28:51.921 INFO  Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+06:28:51.921 INFO  For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+06:28:52.822 INFO  BeanFactory id=210ad12e-3051-3c53-a010-deaff55bdbea
+06:28:53.226 INFO  Tomcat initialized with port(s): 10005 (http)
+06:28:53.233 INFO  Initializing ProtocolHandler ["http-nio-10005"]
+06:28:53.234 INFO  Starting service [Tomcat]
+06:28:53.235 INFO  Starting Servlet engine: [Apache Tomcat/10.1.13]
+06:28:53.287 INFO  Initializing Spring embedded WebApplicationContext
+06:28:53.287 INFO  Root WebApplicationContext: initialization completed in 1366 ms
+06:28:53.322 DEBUG Filter 'requestLoggingFilter' configured for use
+06:28:53.537 INFO  Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+06:28:53.648 INFO  Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
+06:28:53.656 INFO  Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[7, 0, 5]}, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5878400}
+06:28:53.716 INFO  Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
+06:28:53.726 INFO  Opened connection [connectionId{localValue:3, serverValue:3}] to localhost:27017
+06:28:53.733 INFO  Opened connection [connectionId{localValue:4, serverValue:4}] to localhost:27017
+06:28:53.744 INFO  Opened connection [connectionId{localValue:5, serverValue:5}] to localhost:27017
+06:28:53.756 INFO  Opened connection [connectionId{localValue:6, serverValue:6}] to localhost:27017
+06:28:53.769 INFO  Opened connection [connectionId{localValue:7, serverValue:7}] to localhost:27017
+06:28:53.779 INFO  Opened connection [connectionId{localValue:8, serverValue:8}] to localhost:27017
+06:28:53.790 INFO  Opened connection [connectionId{localValue:9, serverValue:9}] to localhost:27017
+06:28:53.800 INFO  Opened connection [connectionId{localValue:10, serverValue:10}] to localhost:27017
+06:28:53.810 INFO  Opened connection [connectionId{localValue:11, serverValue:11}] to localhost:27017
+06:28:53.819 INFO  Opened connection [connectionId{localValue:12, serverValue:12}] to localhost:27017
+06:28:53.829 INFO  Opened connection [connectionId{localValue:13, serverValue:13}] to localhost:27017
+06:28:53.838 INFO  Opened connection [connectionId{localValue:14, serverValue:14}] to localhost:27017
+06:28:53.848 INFO  Opened connection [connectionId{localValue:15, serverValue:15}] to localhost:27017
+06:28:53.861 INFO  Opened connection [connectionId{localValue:16, serverValue:16}] to localhost:27017
+06:28:53.929 DEBUG ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+06:28:54.060 DEBUG 5 mappings in 'requestMappingHandlerMapping'
+06:28:54.077 DEBUG Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+06:28:54.085 DEBUG ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+06:28:54.168 INFO  LiveReload server is running on port 35729
+06:28:54.281 WARN  Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+06:28:54.341 INFO  Starting ProtocolHandler ["http-nio-10005"]
+06:28:54.355 INFO  Tomcat started on port(s): 10005 (http) with context path ''
+06:28:54.485 INFO  Started TvrPreviewApplication in 3.459 seconds (process running for 4.271)
+06:29:53.601 INFO  Opened connection [connectionId{localValue:17, serverValue:17}] to localhost:27017
+06:29:53.610 INFO  Opened connection [connectionId{localValue:18, serverValue:18}] to localhost:27017
+06:29:53.619 INFO  Opened connection [connectionId{localValue:19, serverValue:19}] to localhost:27017
+06:29:53.627 INFO  Opened connection [connectionId{localValue:20, serverValue:20}] to localhost:27017
+06:29:53.636 INFO  Opened connection [connectionId{localValue:21, serverValue:21}] to localhost:27017
+06:29:53.645 INFO  Opened connection [connectionId{localValue:22, serverValue:22}] to localhost:27017
+06:29:53.653 INFO  Opened connection [connectionId{localValue:23, serverValue:23}] to localhost:27017
+06:29:53.661 INFO  Opened connection [connectionId{localValue:24, serverValue:24}] to localhost:27017
+06:29:53.671 INFO  Opened connection [connectionId{localValue:25, serverValue:25}] to localhost:27017
+06:29:53.679 INFO  Opened connection [connectionId{localValue:26, serverValue:26}] to localhost:27017
+06:29:53.686 INFO  Opened connection [connectionId{localValue:27, serverValue:27}] to localhost:27017
+06:29:53.694 INFO  Opened connection [connectionId{localValue:28, serverValue:28}] to localhost:27017
+06:29:53.702 INFO  Opened connection [connectionId{localValue:29, serverValue:29}] to localhost:27017
+06:29:53.710 INFO  Opened connection [connectionId{localValue:30, serverValue:30}] to localhost:27017
+06:29:53.719 INFO  Opened connection [connectionId{localValue:31, serverValue:31}] to localhost:27017
+06:30:53.595 INFO  Opened connection [connectionId{localValue:32, serverValue:34}] to localhost:27017
+06:30:53.605 INFO  Opened connection [connectionId{localValue:33, serverValue:35}] to localhost:27017
+06:30:53.614 INFO  Opened connection [connectionId{localValue:34, serverValue:36}] to localhost:27017
+06:30:53.622 INFO  Opened connection [connectionId{localValue:35, serverValue:37}] to localhost:27017
+06:30:53.653 INFO  Opened connection [connectionId{localValue:36, serverValue:38}] to localhost:27017
+06:30:53.664 INFO  Opened connection [connectionId{localValue:37, serverValue:39}] to localhost:27017
+06:30:53.673 INFO  Opened connection [connectionId{localValue:38, serverValue:40}] to localhost:27017
+06:30:53.682 INFO  Opened connection [connectionId{localValue:39, serverValue:41}] to localhost:27017
+06:30:53.691 INFO  Opened connection [connectionId{localValue:40, serverValue:42}] to localhost:27017
+06:30:53.701 INFO  Opened connection [connectionId{localValue:41, serverValue:43}] to localhost:27017
+06:30:53.713 INFO  Opened connection [connectionId{localValue:42, serverValue:44}] to localhost:27017
+06:30:53.723 INFO  Opened connection [connectionId{localValue:43, serverValue:45}] to localhost:27017
+06:30:53.741 INFO  Opened connection [connectionId{localValue:44, serverValue:46}] to localhost:27017
+06:30:53.750 INFO  Opened connection [connectionId{localValue:45, serverValue:47}] to localhost:27017
+06:30:53.759 INFO  Opened connection [connectionId{localValue:46, serverValue:48}] to localhost:27017
+06:31:53.594 INFO  Opened connection [connectionId{localValue:47, serverValue:49}] to localhost:27017
+06:31:53.603 INFO  Opened connection [connectionId{localValue:48, serverValue:50}] to localhost:27017
+06:31:53.613 INFO  Opened connection [connectionId{localValue:49, serverValue:51}] to localhost:27017
+06:31:53.621 INFO  Opened connection [connectionId{localValue:50, serverValue:52}] to localhost:27017
+06:31:53.629 INFO  Opened connection [connectionId{localValue:51, serverValue:53}] to localhost:27017
+06:31:53.638 INFO  Opened connection [connectionId{localValue:52, serverValue:54}] to localhost:27017
+06:31:53.648 INFO  Opened connection [connectionId{localValue:53, serverValue:55}] to localhost:27017
+06:31:53.656 INFO  Opened connection [connectionId{localValue:54, serverValue:56}] to localhost:27017
+06:31:53.665 INFO  Opened connection [connectionId{localValue:55, serverValue:57}] to localhost:27017
+06:31:53.675 INFO  Opened connection [connectionId{localValue:56, serverValue:58}] to localhost:27017
+06:31:53.684 INFO  Opened connection [connectionId{localValue:57, serverValue:59}] to localhost:27017
+06:31:53.693 INFO  Opened connection [connectionId{localValue:58, serverValue:60}] to localhost:27017
+06:31:53.701 INFO  Opened connection [connectionId{localValue:59, serverValue:61}] to localhost:27017
+06:31:53.710 INFO  Opened connection [connectionId{localValue:60, serverValue:62}] to localhost:27017
+06:31:53.719 INFO  Opened connection [connectionId{localValue:61, serverValue:63}] to localhost:27017
+06:32:53.582 INFO  Opened connection [connectionId{localValue:62, serverValue:64}] to localhost:27017
+06:32:53.588 INFO  Opened connection [connectionId{localValue:63, serverValue:65}] to localhost:27017
+06:32:53.596 INFO  Opened connection [connectionId{localValue:64, serverValue:66}] to localhost:27017
+06:32:53.603 INFO  Opened connection [connectionId{localValue:65, serverValue:67}] to localhost:27017
+06:32:53.611 INFO  Opened connection [connectionId{localValue:66, serverValue:68}] to localhost:27017
+06:32:53.618 INFO  Opened connection [connectionId{localValue:67, serverValue:69}] to localhost:27017
+06:32:53.625 INFO  Opened connection [connectionId{localValue:68, serverValue:70}] to localhost:27017
+06:32:53.631 INFO  Opened connection [connectionId{localValue:69, serverValue:71}] to localhost:27017
+06:32:53.638 INFO  Opened connection [connectionId{localValue:70, serverValue:72}] to localhost:27017
+06:32:53.645 INFO  Opened connection [connectionId{localValue:71, serverValue:73}] to localhost:27017
+06:32:53.652 INFO  Opened connection [connectionId{localValue:72, serverValue:74}] to localhost:27017
+06:32:53.661 INFO  Opened connection [connectionId{localValue:73, serverValue:75}] to localhost:27017
+06:32:53.669 INFO  Opened connection [connectionId{localValue:74, serverValue:76}] to localhost:27017
+06:32:53.676 INFO  Opened connection [connectionId{localValue:75, serverValue:77}] to localhost:27017
+06:32:53.683 INFO  Opened connection [connectionId{localValue:76, serverValue:78}] to localhost:27017
+06:33:53.591 INFO  Opened connection [connectionId{localValue:77, serverValue:79}] to localhost:27017
+06:33:53.599 INFO  Opened connection [connectionId{localValue:78, serverValue:80}] to localhost:27017
+06:33:53.606 INFO  Opened connection [connectionId{localValue:79, serverValue:81}] to localhost:27017
+06:33:53.613 INFO  Opened connection [connectionId{localValue:80, serverValue:82}] to localhost:27017
+06:33:53.620 INFO  Opened connection [connectionId{localValue:81, serverValue:83}] to localhost:27017
+06:33:53.626 INFO  Opened connection [connectionId{localValue:82, serverValue:84}] to localhost:27017
+06:33:53.635 INFO  Opened connection [connectionId{localValue:83, serverValue:85}] to localhost:27017
+06:33:53.641 INFO  Opened connection [connectionId{localValue:84, serverValue:86}] to localhost:27017
+06:33:53.649 INFO  Opened connection [connectionId{localValue:85, serverValue:87}] to localhost:27017
+06:33:53.655 INFO  Opened connection [connectionId{localValue:86, serverValue:88}] to localhost:27017
+06:33:53.664 INFO  Opened connection [connectionId{localValue:87, serverValue:89}] to localhost:27017
+06:33:53.673 INFO  Opened connection [connectionId{localValue:88, serverValue:90}] to localhost:27017
+06:33:53.681 INFO  Opened connection [connectionId{localValue:89, serverValue:91}] to localhost:27017
+06:33:53.688 INFO  Opened connection [connectionId{localValue:90, serverValue:92}] to localhost:27017
+06:33:53.694 INFO  Opened connection [connectionId{localValue:91, serverValue:93}] to localhost:27017
+06:34:53.589 INFO  Opened connection [connectionId{localValue:92, serverValue:94}] to localhost:27017
+06:34:53.597 INFO  Opened connection [connectionId{localValue:93, serverValue:95}] to localhost:27017
+06:34:53.602 INFO  Opened connection [connectionId{localValue:94, serverValue:96}] to localhost:27017
+06:34:53.608 INFO  Opened connection [connectionId{localValue:95, serverValue:97}] to localhost:27017
+06:34:53.615 INFO  Opened connection [connectionId{localValue:96, serverValue:98}] to localhost:27017
+06:34:53.622 INFO  Opened connection [connectionId{localValue:97, serverValue:99}] to localhost:27017
+06:34:53.629 INFO  Opened connection [connectionId{localValue:98, serverValue:100}] to localhost:27017
+06:34:53.636 INFO  Opened connection [connectionId{localValue:99, serverValue:101}] to localhost:27017
+06:34:53.642 INFO  Opened connection [connectionId{localValue:100, serverValue:102}] to localhost:27017
+06:34:53.648 INFO  Opened connection [connectionId{localValue:101, serverValue:103}] to localhost:27017
+06:34:53.654 INFO  Opened connection [connectionId{localValue:102, serverValue:104}] to localhost:27017
+06:34:53.661 INFO  Opened connection [connectionId{localValue:103, serverValue:105}] to localhost:27017
+06:34:53.667 INFO  Opened connection [connectionId{localValue:104, serverValue:106}] to localhost:27017
+06:34:53.674 INFO  Opened connection [connectionId{localValue:105, serverValue:107}] to localhost:27017
+06:34:53.680 INFO  Opened connection [connectionId{localValue:106, serverValue:108}] to localhost:27017

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.treevalue.robot.resource.pgsql.mapper.ResourceFeedbackMapper">
+<!--    todo-->
+       <select id="findByResourceID" resultType="com.treevalue.robot.resource.pgsql.model.ResourceFeedback">
+        SELECT * FROM tvr_resource_feedback where resourceId = #{resourceId}
+    </select>
+
+
+    <select id="findFeedbackLevelByResourceId" resultType="double">
+        SELECT feedbackLevel FROM tvr_resource_feedback WHERE resourceId = #{resourceId}
+    </select>
+
+</mapper>

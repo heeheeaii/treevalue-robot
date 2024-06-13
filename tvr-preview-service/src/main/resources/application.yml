@@ -1,0 +1,41 @@
+spring:
+  profiles:
+    include:
+      - mongodb
+      - web
+  application:
+    name: tvr-preview
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+  config:
+    import: optional:zookeeper:localhost:2181
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.web: DEBUG
+server:
+  port: 10006
+---
+spring:
+  cloud:
+    consul:
+      discovery:
+        instanceZone: zone1
+  config:
+    activate:
+      on-profile: zone1
+server:
+  port: ${PORT:8091}
+
+---
+spring:
+  cloud:
+    consul:
+      discovery:
+        instanceZone: zone2
+  config:
+    activate:
+      on-profile: zone1
+server:
+  port: ${PORT:9091}

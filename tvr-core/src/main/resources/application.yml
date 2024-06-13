@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: tvr-core-service
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+  config:
+    import: optional:zookeeper:localhost:2181
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+server:
+  port: 10001

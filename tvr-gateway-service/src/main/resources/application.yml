@@ -1,0 +1,64 @@
+spring:
+  profiles:
+    include:
+      - web
+      - cors
+  application:
+    name: gateway-service
+  config:
+    import: optional:zookeeper:localhost:2181
+  output:
+    ansi:
+      enabled: always
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: tvr-preview
+          uri: lb://tvr-preview
+          predicates:
+            - Path=/treevalue/robot/preview/**
+          filters:
+            - RewritePath=/treevalue/robot/(?<path>.*), /$\{path}
+
+        - id: tvr-user
+          uri: lb://tvr-user
+          predicates:
+            - Path=/treevalue/robot/users/**
+          filters:
+            - RewritePath=/treevalue/robot/(?<path>.*), /$\{path}
+
+        - id: tvr-resource
+          uri: lb://tvr-resource
+          predicates:
+            - Path=/treevalue/robot/resource/**
+          filters:
+            - RewritePath=/treevalue/robot/(?<path>.*), /$\{path}
+
+        - id: tvr-search
+          uri: lb://tvr-search
+          predicates:
+            - Path=/treevalue/robot/search/**
+          filters:
+            - RewritePath=/treevalue/robot/(?<path>.*), /$\{path}
+    zookeeper:
+      connect-string: localhost:2181
+server:
+  port: 10003
+---
+spring:
+  config:
+    activate:
+      on-profile: zone1
+server:
+  port: ${PORT:8090}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: zone2
+server:
+  port: ${PORT:9080}

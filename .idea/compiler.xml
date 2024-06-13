@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="tvr-user-service" />
+        <module name="tvr-preview-service" />
+        <module name="util" />
+        <module name="tvr-core-service" />
+        <module name="customer-service" />
+        <module name="tvr-search-service" />
+        <module name="tvr-gateway-service" />
+        <module name="tvr-net" />
+        <module name="tvr-resource-service" />
+        <module name="account-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account-service (1)" target="17" />
+      <module name="customer-service (1)" target="21" />
+      <module name="customer-service (2)" target="21" />
+      <module name="order-service" target="21" />
+      <module name="product-service" target="21" />
+      <module name="sample-spring-cloud-zookeeper" target="1.5" />
+      <module name="tvr-core" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="account-service" options="-parameters" />
+      <module name="account-service (1)" options="-parameters" />
+      <module name="customer-service" options="-parameters" />
+      <module name="customer-service (1)" options="-parameters" />
+      <module name="customer-service (2)" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="product-service" options="-parameters" />
+      <module name="tvr-core" options="-parameters" />
+      <module name="tvr-core-service" options="-parameters" />
+      <module name="tvr-gateway-service" options="-parameters" />
+      <module name="tvr-preview-service" options="-parameters" />
+      <module name="tvr-resource-service" options="-parameters" />
+      <module name="tvr-search-service" options="-parameters" />
+      <module name="tvr-user-service" options="-parameters" />
+      <module name="util" options="-parameters" />
+    </option>
+  </component>
+</project>

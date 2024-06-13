@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    include: mybatis-plus
+  application:
+    name: tvr-user
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+  config:
+    import: optional:zookeeper:localhost:2181
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.boot: DEBUG
+server:
+  port: 10002
+---
+spring:
+  config:
+    activate:
+      on-profile: zone1
+server:
+  port: ${PORT:8092}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: zone2
+server:
+  port: ${PORT:9092}
+

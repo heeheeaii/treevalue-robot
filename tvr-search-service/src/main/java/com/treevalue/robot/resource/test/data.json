@@ -1,0 +1,62 @@
+[
+    {
+        "id": 6563280466403875501,
+        "usefulness": "use ea06cdd4-ee8a-4d72-a326-e2ab94de7a98",
+        "condition": ["condition","con2"],
+        "resourceId": "029017d7-2299-4f9c-b978-40da7d34fe87"
+    },
+    {
+        "id": -7367179340103358763,
+        "usefulness": "33146use 191-15a5-4buse 98-878f-9d416affe67e",
+        "condition": ["contion", "condition", null],
+        "resourceId": "8f25cca0-0a1a-4d65-9202-6420b520387c"
+    },
+    {
+        "id": 3864391002508157867,
+        "usefulness": "8516d013-d47f-41ab-83e8-c92ff8dfaf4f",
+        "condition": [null],
+        "resourceId": "ce552ee0-31b1-42a7-a175-b7e5ae90c34e"
+    },
+    {
+        "id": -3589061897503187693,
+        "usefulness": "a812c4d3-e4a3-4e7b-abe6-52c625a81aaf",
+        "condition": [null],
+        "resourceId": "2f648072-4a73-48a0-9a45-8593676ba3f3"
+    },
+    {
+        "id": 8814650484558091174,
+        "usefulness": "40308343-7dd2-477e-a04c-54d73c98c06e",
+        "condition": [null],
+        "resourceId": "76a55924-0fea-4993-9250-e478313ff0f9"
+    },
+    {
+        "id": -8163200955303081848,
+        "usefulness": "a32a417d-1937-4d37-bf9e-dbd3cdda198e",
+        "condition": [null],
+        "resourceId": "65d556aa-6712-4202-b3c6-6dd0b2e4dc82"
+    },
+    {
+        "id": -3138441309263826717,
+        "usefulness": "b8becdd4-15f0-409e-8d16-14a27f1dde16",
+        "condition": [null],
+        "resourceId": "205b6dd1-e079-4c32-a9f8-a1fdfb1f1382"
+    },
+    {
+        "id": 3745520296427411913,
+        "usefulness": "a88fc824-ea73-4e41-ab5b-4c50ce806c8e",
+        "condition": [null],
+        "resourceId": "acd4c636-0c23-43b5-981f-633eef87d1ff"
+    },
+    {
+        "id": 6323453141290201599,
+        "usefulness": "c4e49a22-9d94-4918-ab28-1aa8a8309a31",
+        "condition": [null],
+        "resourceId": "b33111ab-114e-4664-8fda-48a115820179"
+    },
+    {
+        "id": -3269966674278592917,
+        "usefulness": "b3124036-330b-47a1-81bb-e96acc1cef4b",
+        "condition": [null],
+        "resourceId": "b150c820-7aca-4494-ae4c-b0aac38a1016"
+    }
+]

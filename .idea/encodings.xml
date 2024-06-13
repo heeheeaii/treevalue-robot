@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/7be8177b-09c6-4dc9-b58d-4a07ee97e572/console.sql" charset="US-ASCII" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/f9d38ccd-a9f6-468d-a795-845f2717b515/console.sql" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/../../application3/hbase-2.3.3/logs/hbase--master-HEE.out" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/../../application3/hbase-2.3.3/logs/hbase--regionserver-HEE.out" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/../../application3/hbase-2.3.3/logs/hbase--zookeeper-HEE.out" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/../../application3/hbase-2.3.3/logs/hbase--zookeeper-HEE.out.2" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/account-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/account-service/src/main/java/com/treevalue/robot/resource/test.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/account-service/src/main/resources/mapper/TvrResourceDao.xml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/customer-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/logs/tvr-es.log" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/product-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/task/3-12.md" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/task/4.23" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/task/blueprint/core.md" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/task/blueprint/layer.md" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/entropyreducer/rememberlack/RememberFrame.kt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/modelmachine/parser/tmp/draft" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/data.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/loadWavFileToByteArray.kt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/t.md" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/test.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/resources/cloud/kafka-client.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/resources/modelmachine/visual/visual_obj_counter" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/resources/test/audio/fft/audio_component.tsv" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-gateway-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-gateway-service/src/main/resources/application-cors.yml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-gateway-service/src/main/resources/application-web.yml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-net/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-net/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-preview-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-preview-service/src/main/resources/application-mongodb.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-preview-service/src/main/resources/application-web.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-preview-service/src/main/resources/script/mongodb-init.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/java/com/treevalue/robot/resource/hbase/f" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/java/com/treevalue/robot/resource/hbase/f.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/java/com/treevalue/robot/resource/hbase/j" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/java/com/treevalue/robot/resource/hbase/j.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/java/com/treevalue/robot/resource/hbase/x.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/resources/application-feign.yml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/resources/application-mongodb.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/resources/mapper/resourceDescriptionMapper.xml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/resources/mapper/resourceFeedbackEvaluationMapper.xml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/resources/mapper/resourceFeedbackMapper.xml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/resources/script/mongodb.json" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-resource-service/src/main/resources/script/pgsql.sql" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-search-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-search-service/src/main/java/com/treevalue/robot/resource/test/data.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-search-service/src/main/resources/application-cafeine.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-search-service/src/main/resources/application-caffeine.yml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-search-service/src/main/resources/application-elasticsearch.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-search-service/src/main/resources/application-loadbalancer.yml" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-users-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-users-service/src/main/resources/application-mybatis-plus.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/util/src/main/java" charset="UTF-8" />
+  </component>
+</project>

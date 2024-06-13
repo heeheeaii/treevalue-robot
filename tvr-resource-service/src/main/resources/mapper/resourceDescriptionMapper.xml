@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.treevalue.robot.resource.pgsql.mapper.ResourceDescriptionMapper">
+    <select id="findByResourceID" resultType="com.treevalue.robot.resource.pgsql.model.ResourceDescription">
+        SELECT resourceid, condition, price, valuation, id FROM tvr_resource_description WHERE resourceid = #{resourceId}
+    </select>
+
+    <select id="findPriceAndEvaluationByResourceId"
+            resultType="com.treevalue.robot.resource.pgsql.msg.ResourcePriceAndEvaluationMsg">
+        SELECT price, valuation FROM tvr_resource_description WHERE resourceid = #{resourceId}
+    </select>
+</mapper>

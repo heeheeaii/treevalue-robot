@@ -1,0 +1,15 @@
+MONGO_INITDB_ROOT_USERNAME = mg
+MONGO_INITDB_ROOT_PASSWORD = mg
+use admin
+db.auth("mg", "mg")
+use tmp
+db.createUser({
+    user: "mg1",
+    pwd: "mg1",
+    roles: [{role: "dbOwner", db: "tmp"}]
+})
+db.createUser({
+    user: "mg1",
+    pwd: "mg1",
+    roles: [{role: "dbOwner", db: "mg"}]
+})
