@@ -80,7 +80,7 @@ class MicroPhone {
                     }
                 }
             };
-            ThreadPool.getScheduler().scheduleAtFixedRate(task, 0, 46440, TimeUnit.MICROSECONDS);
+            ThreadPool.getScheduler().scheduleAtFixedRate(task, 0, 47619, TimeUnit.MICROSECONDS);// 21 times
         }
     }
 }

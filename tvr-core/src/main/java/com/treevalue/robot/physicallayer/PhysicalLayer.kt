@@ -4,8 +4,8 @@ import ai.djl.ndarray.NDArray
 import com.treevalue.robot.data.OrderedConcurrentMap
 import kotlin.concurrent.withLock
 
-final class PhysicalLayer(maxCapacity: Long = 1024) : OrderedConcurrentMap<Long, NDArray>(maxCapacity) {
-    fun push(value: NDArray) {
+final class PhysicalLayer(maxCapacity: Long = 1024) : OrderedConcurrentMap<Long, Array<NDArray>>(maxCapacity), TensorReadable<Array<NDArray>> {
+    fun push(value: Array<NDArray>) {
 
         writeLock.withLock {
             val nano = System.nanoTime()
@@ -20,5 +20,9 @@ final class PhysicalLayer(maxCapacity: Long = 1024) : OrderedConcurrentMap<Long,
                 currentWriteKey = null
             }
         }
+    }
+
+    fun push(audio: NDArray, visual: NDArray) {
+        push(arrayOf(audio, visual))
     }
 }
