@@ -32,7 +32,7 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-tracing-bridge-otel</artifactId>
         </dependency>
-<!--        es-->
+        <!--        es-->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
@@ -83,5 +83,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="800" />
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -10,6 +11,7 @@
         <module name="tvr-preview-service" />
         <module name="util" />
         <module name="tvr-core-service" />
+        <module name="test" />
         <module name="customer-service" />
         <module name="tvr-search-service" />
         <module name="tvr-gateway-service" />
@@ -18,26 +20,11 @@
         <module name="account-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="account-service (1)" target="17" />
-      <module name="customer-service (1)" target="21" />
-      <module name="customer-service (2)" target="21" />
-      <module name="order-service" target="21" />
-      <module name="product-service" target="21" />
-      <module name="sample-spring-cloud-zookeeper" target="1.5" />
-      <module name="tvr-core" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="account-service" options="-parameters" />
-      <module name="account-service (1)" options="-parameters" />
       <module name="customer-service" options="-parameters" />
-      <module name="customer-service (1)" options="-parameters" />
-      <module name="customer-service (2)" options="-parameters" />
-      <module name="order-service" options="-parameters" />
-      <module name="product-service" options="-parameters" />
-      <module name="tvr-core" options="-parameters" />
       <module name="tvr-core-service" options="-parameters" />
       <module name="tvr-gateway-service" options="-parameters" />
       <module name="tvr-preview-service" options="-parameters" />

@@ -1,76 +1,102 @@
 package com.treevalue.robot.physicallayer
 
-import ai.djl.ndarray.NDArray
+import com.treevalue.robot.anno.TopApi
 import com.treevalue.robot.data.MapPair
 import com.treevalue.robot.data.Point
 import com.treevalue.robot.test.ImageComparator
+import java.awt.image.BufferedImage
 import kotlin.math.*
 
 class Recognizer {
     val MAX_DIFF = 0.05
     private val maxPointNumber: Int = 300
+    private val imageComparator: ImageComparator = ImageComparator()
 
-    fun forward(tensor: Array<NDArray>): Array<NDArray> {
-        TODO()
+    @TopApi
+    fun visualBoundIsSimilar(
+        base: BufferedImage,
+        bound: Array<Point<Int, Int>>,
+        other: BufferedImage,
+        bound2: Array<Point<Int, Int>>,
+    ): Boolean {
+        return colorRecognize(base, bound, other, bound2) && geometryRecognize(
+            pointsToDouble(bound), pointsToDouble(bound2)
+        )
     }
 
-    fun forward(points1: Array<Point<Double, Double>>, points2: Array<Point<Double, Double>>): Boolean {
-        prepare(points1, points2)
-        return compare(ImageComparator(), points1, points2)
+    fun <T : Number> pointsToDouble(array: Array<Point<T, T>>): Array<Point<Double, Double>> {
+        return array.map { Point(it.first.toDouble(), it.second.toDouble()) }.toTypedArray()
     }
 
-    private fun prepare(
+    fun colorRecognize(
+        base: BufferedImage,
+        bound: Array<Point<Int, Int>>,
+        other: BufferedImage,
+        bound2: Array<Point<Int, Int>>,
+    ): Boolean {
+        return imageComparator.colorSummaryCompare(base, bound, other, bound2)
+    }
+
+    fun geometryRecognize(points1: Array<Point<Double, Double>>, points2: Array<Point<Double, Double>>): Boolean {
+        val (ps1, ps2) = geometryPrepare(points1, points2)
+        return compare(ImageComparator(), ps1, ps2)
+    }
+
+    private fun geometryPrepare(
         points1: Array<Point<Double, Double>>, points2: Array<Point<Double, Double>>
-    ) {
+    ): Array<Array<Point<Double, Double>>> {
         val centers = centralize(points1, points2)
         normalizeWithCenters(centers, points1, points2)
-        extraMaxNumberPoints(points1, points2)
+        return extraMaxNumberPoints(points1, points2)
     }
 
     private fun compare(
         comparator: ImageComparator, points1: Array<Point<Double, Double>>, points2: Array<Point<Double, Double>>
     ): Boolean {
-        val map = MapPair<Double, Double>(Double.MAX_VALUE, 0.0)
+        val map = MapPair(Double.MAX_VALUE, 0.0)
         var internal = PI / 6
         var rad = 0.0
-        comparator.addBase(pointArrayToIntArray(points1))
-        comparator.addOther(pointArrayToIntArray(points2))
-        rotateCompare(rad, internal, comparator, map, points2)
+        comparator.addBase(points1)
+        comparator.clearAddOther(points2)
+        rotateCompare(rad, internal, 2 * PI, comparator, map, points2)
         internal /= 6
         rad = map.second - internal * 5
-        rotateCompare(rad, internal, comparator, map, points2)
+        rotate(rad, points2)
+        comparator.clearAddOther(points2)
+        rotateCompare(rad, internal, rad + 11 * internal, comparator, map, points2)
         return map.first < MAX_DIFF
     }
 
     private fun rotateCompare(
         rad: Double,
         internal: Double,
+        end: Double,
         comparator: ImageComparator,
         map: MapPair<Double, Double>,
         points2: Array<Point<Double, Double>>
     ) {
         var rad1 = rad
-        while (rad1 < rad1 + internal * 11) {
+        while (rad1 < end) {
             val diff = comparator.diff()
             if (diff < map.first) {
                 map.first = diff
                 map.second = rad1
             }
             rotate(internal, points2)
-            comparator.addOther(pointArrayToIntArray(points2))
+            comparator.clearAddOther(points2)
             rad1 += internal
         }
     }
 
     fun <K : Number, T : Number> pointArrayToIntArray(points: Array<Point<K, T>>): Array<Point<Int, Int>> {
-        return points.map { Point(it.x.toInt(), it.y.toInt()) }.toTypedArray()
+        return points.map { Point(it.first.toInt(), it.second.toInt()) }.toTypedArray()
     }
 
     private fun <K : Number, T : Number> extraMaxNumberPoints(
         vararg pointsList: Array<Point<K, T>>,
     ): Array<Array<Point<K, T>>> {
         val rst = ArrayList<Array<Point<K, T>>>()
-        val map = pointsList.map { ps ->
+        pointsList.map { ps ->
             if (ps.size > maxPointNumber) {
                 rst.add(extractBySize(maxPointNumber, ps).toTypedArray())
             } else {
@@ -83,7 +109,7 @@ class Recognizer {
     fun <K : Number, T : Number> scale(vararg pointsList: Array<Point<K, T>>): List<Double> {
         return pointsList.map { ps ->
             ps.map {
-                sqrt(it.x.toDouble() * it.x.toDouble() + it.y.toDouble() * it.y.toDouble())
+                sqrt(it.first.toDouble() * it.first.toDouble() + it.second.toDouble() * it.second.toDouble())
             }.average()
         }
     }
@@ -95,8 +121,8 @@ class Recognizer {
         for (idx in 0 until pointsList.size) {
             val ps = pointsList[idx]
             ps.forEach { p ->
-                p.x = (p.x - centers[idx].x) / scales[idx]
-                p.y -= (p.y - centers[idx].y) / scales[idx]
+                p.first = (p.first - centers[idx].first) / scales[idx]
+                p.second = (p.second - centers[idx].second) / scales[idx]
             }
         }
     }
@@ -111,11 +137,11 @@ class Recognizer {
         for (idx in 0 until pointsList.size) {
             val ps = pointsList[idx]
             ps.forEach {
-                centers[idx].x += it.x.toDouble()
-                centers[idx].y += it.y.toDouble()
+                centers[idx].first += it.first.toDouble()
+                centers[idx].second += it.second.toDouble()
             }
-            centers[idx].x /= (ps.size + 0.0)
-            centers[idx].y /= (ps.size + 0.0)
+            centers[idx].first /= (ps.size + 0.0)
+            centers[idx].second /= (ps.size + 0.0)
         }
         return centers
     }
@@ -142,8 +168,8 @@ class Recognizer {
     fun rotate(radian: Double, vararg pointsList: Array<Point<Double, Double>>) {
         pointsList.forEach { points ->
             points.forEach { point ->
-                point.x = point.x * cos(radian) - point.y * sin(radian)
-                point.y = point.x * sin(radian) + point.y * cos(radian)
+                point.first = point.first * cos(radian) - point.second * sin(radian)
+                point.second = point.first * sin(radian) + point.second * cos(radian)
             }
         }
     }

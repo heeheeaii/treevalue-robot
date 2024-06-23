@@ -71,5 +71,4 @@ class DrawingPanel : JPanel() {
             frame.contentPane.add(saveButton, BorderLayout.SOUTH)
         }
     }
-
 }

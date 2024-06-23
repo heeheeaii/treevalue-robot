@@ -15,6 +15,6 @@ public class CoreApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Robot.INSTANCE.main();
+//        Robot.INSTANCE.main();
     }
 }

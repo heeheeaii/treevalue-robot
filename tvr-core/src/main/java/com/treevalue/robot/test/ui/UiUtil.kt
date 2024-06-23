@@ -2,7 +2,7 @@ package com.treevalue.robot.test.ui
 
 import javax.swing.JFrame
 
-class UiUtil {
+object UiUtil {
     fun getFrame(width: Int = 500, height: Int = 800, name: String = "frame"): JFrame {
         val frame = JFrame(name)
         frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE

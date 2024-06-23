@@ -21,14 +21,17 @@
     <file url="file://$PROJECT_DIR$/task/4.23" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/task/blueprint/core.md" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/task/blueprint/layer.md" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/entropyreducer/rememberlack/RememberFrame.kt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/modelmachine/parser/tmp/draft" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/data.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/loadWavFileToByteArray.kt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/paint3.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/points.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/t.md" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/test.txt" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/test.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/resources/cloud/kafka-client.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/resources/modelmachine/visual/visual_obj_counter" charset="US-ASCII" />

@@ -1,5 +1,6 @@
 package com.treevalue.robot.test.pointSet
 
+import com.treevalue.robot.data.Point
 import java.awt.Color
 import java.awt.Graphics
 import java.io.File
@@ -9,18 +10,22 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 class PointUtil {
-    private var points: MutableList<Point> = mutableListOf()
-    private var originalPoints: List<Point> = listOf()
+    private var points: MutableList<Point<Double, Double>> = mutableListOf()
+    private var originalPoints: List<Point<Double, Double>> = listOf()
 
     fun savePointsToFile(filename: String) {
         File(filename).bufferedWriter().use { out ->
             points.forEach { point ->
-                out.write("${point.x}, ${point.y}\n")
+                out.write("${point.first}, ${point.second}\n")
             }
         }
     }
 
-    fun load(pointList: MutableList<Point>) {
+    fun getPointsAsArray(): Array<Point<Double, Double>> {
+        return points.toTypedArray()
+    }
+
+    fun load(pointList: MutableList<Point<Double, Double>>) {
         points = pointList
     }
 
@@ -35,7 +40,7 @@ class PointUtil {
 
     // 缩放点集
     fun zoom(scaleFactor: Double) {
-        points = points.map { Point(it.x * scaleFactor, it.y * scaleFactor) }.toMutableList()
+        points = points.map { Point(it.first * scaleFactor, it.second * scaleFactor) }.toMutableList()
     }
 
     // 旋转点集
@@ -45,24 +50,41 @@ class PointUtil {
         val sinAngle = sin(radians)
         points = points.map {
             Point(
-                it.x * cosAngle - it.y * sinAngle, it.x * sinAngle + it.y * cosAngle
+                it.first * cosAngle - it.second * sinAngle, it.first * sinAngle + it.second * cosAngle
             )
         }.toMutableList()
     }
 
     // 获取点集
-    fun getPoints(): List<Point> = points
-    fun getOriginalPoints(): List<Point> = originalPoints
+    fun getPoints(): List<Point<Double, Double>> = points
+    fun getOriginalPoints(): List<Point<Double, Double>> = originalPoints
 
     // 获取点集的中心
-    fun getCenter(points: List<Point>): Point {
-        val centerX = points.map { it.x }.average()
-        val centerY = points.map { it.y }.average()
+    fun getCenter(points: List<Point<Double, Double>>): Point<Double, Double> {
+        val centerX = points.map { it.first }.average()
+        val centerY = points.map { it.second }.average()
         return Point(centerX, centerY)
     }
 
+    fun drawPoints(
+        originalPoints: List<Point<Double, Double>>,
+        points: List<Point<Double, Double>>,
+        width: Int = 2,
+        height: Int = 2
+    ) {
+        val panel = PointPanel(originalPoints, points)
+        val frame = JFrame()
+        frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
+        frame.setSize(width, height)
+        frame.add(panel)
+        frame.isVisible = true
+    }
+
     companion object {
-        class PointPanel(private val originalPoints: List<Point>, private val points: List<Point>) : JPanel() {
+        class PointPanel(
+            private val originalPoints: List<Point<Double, Double>>,
+            private val points: List<Point<Double, Double>>
+        ) : JPanel() {
 
             override fun paintComponent(g: Graphics) {
                 super.paintComponent(g)
@@ -75,8 +97,8 @@ class PointUtil {
                 g.color = Color.RED
                 for (point in originalPoints) {
                     g.fillOval(
-                        (point.x - originalCenter.x).toInt() + xOffset,
-                        (point.y - originalCenter.y).toInt() + yOffset,
+                        (point.first - originalCenter.first).toInt() + xOffset,
+                        (point.second - originalCenter.second).toInt() + yOffset,
                         5,
                         5
                     )
@@ -85,47 +107,19 @@ class PointUtil {
                 g.color = Color.BLUE
                 for (point in points) {
                     g.fillOval(
-                        (point.x - transformedCenter.x).toInt() + xOffset,
-                        (point.y - transformedCenter.y).toInt() + yOffset,
+                        (point.first - transformedCenter.first).toInt() + xOffset,
+                        (point.second - transformedCenter.second).toInt() + yOffset,
                         5,
                         5
                     )
                 }
             }
 
-            private fun getCenter(points: List<Point>): Point {
-                val centerX = points.map { it.x }.average()
-                val centerY = points.map { it.y }.average()
+            private fun getCenter(points: List<Point<Double, Double>>): Point<Double, Double> {
+                val centerX = points.map { it.first }.average()
+                val centerY = points.map { it.second }.average()
                 return Point(centerX, centerY)
             }
         }
-
-        data class Point(val x: Double, val y: Double)
-
-        @JvmStatic
-        fun main(args: Array<String>) {
-            val pointUtil = PointUtil()
-
-            // 加载点
-            pointUtil.load("D:\\treevalue\\treevalue-robot\\tvr-core\\src\\main\\java\\com\\treevalue\\robot\\test\\points.txt")
-            println("Original Points: ${pointUtil.getOriginalPoints()}")
-
-            // 缩放点集
-            pointUtil.zoom(2.0)
-            println("Zoomed Points: ${pointUtil.getPoints()}")
-
-            // 旋转点集
-            pointUtil.rotate(90.0)
-            pointUtil.savePointsToFile("D:\\treevalue\\treevalue-robot\\tvr-core\\src\\main\\java\\com\\treevalue\\robot\\test\\points-2.txt")
-            println("Rotated Points: ${pointUtil.getPoints()}")
-
-            // 创建绘图窗口
-            val frame = JFrame("Point Set")
-            frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
-            frame.setSize(800, 800)
-            frame.add(PointPanel(pointUtil.getOriginalPoints(), pointUtil.getPoints()))
-            frame.isVisible = true
-        }
-
     }
 }

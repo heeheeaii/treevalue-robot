@@ -1,7 +1,7 @@
 package com.treevalue.robot.data
 
-import com.treevalue.robot.pool.AudioCachePool
-import com.treevalue.robot.pool.VisualCachePool
+import com.treevalue.robot.physicallayer.AudioCachePool
+import com.treevalue.robot.physicallayer.VisualCachePool
 import java.awt.Robot
 import java.util.concurrent.locks.ReentrantLock
 import javax.sound.sampled.AudioFormat
