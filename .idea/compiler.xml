@@ -15,11 +15,13 @@
         <module name="customer-service" />
         <module name="tvr-search-service" />
         <module name="tvr-gateway-service" />
-        <module name="tvr-net" />
         <module name="tvr-resource-service" />
         <module name="account-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tvr-net" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
