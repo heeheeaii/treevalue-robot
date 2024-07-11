@@ -24,12 +24,14 @@
         <option value="$PROJECT_DIR$/tvr-core/pom.xml" />
         <option value="$PROJECT_DIR$/tvr-net/pom.xml" />
         <option value="$PROJECT_DIR$/test/pom.xml" />
+        <option value="$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/draw/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/order-service/pom.xml" />
         <option value="$PROJECT_DIR$/product-service/pom.xml" />
+        <option value="$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/draw/pom.xml" />
       </set>
     </option>
   </component>

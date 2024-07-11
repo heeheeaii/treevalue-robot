@@ -1,33 +1,134 @@
-package com.treevalue.robot.physicallayer
+package com.treevalue.robot.memeryriver.physicallayer
 
+import ai.djl.ndarray.NDArray
+import ai.djl.ndarray.index.NDIndex
+import ai.djl.ndarray.types.Shape
 import com.treevalue.robot.anno.Macro
 import com.treevalue.robot.anno.TopApi
 import com.treevalue.robot.data.Point
 import com.treevalue.robot.data.TriPoint
+import com.treevalue.robot.data.constant.VisualConstant
 import com.treevalue.robot.ext.getRgb
 import com.treevalue.robot.math.RandomUtil
 import com.treevalue.robot.pointSet.PointSetUtil
+import com.treevalue.robot.tensor.transfer.TensorManager
+import java.awt.Color
 import java.awt.image.BufferedImage
-import java.util.*
 
 class RawImageClassify {
-    private val MAX_DIFF = 0.05
+
+    constructor()
+
+    constructor(img: BufferedImage) {
+        classify(img)
+    }
+
+    private var markNumber = 0
+
+    private val MAX_DIFF = 0.055
 
     //    p(colorInt, mark)
     /* -> y -height
        |
        `'
        x - width
-
      */
     lateinit var markedImageMatrix: Array<Array<TriPoint<Int, Int>>>
     private var width: Int = 0
     private var height: Int = 0
-    private var bounds: HashMap<Int, HashMap<Int, HashSet<Point<Int, Int>>>> = HashMap()
+    private var connects: HashMap<Int, HashSet<Int>> = HashMap()
+    private var bounds: HashMap<Int, HashSet<Point<Int, Int>>> = HashMap()
+    var markSet: HashSet<Int> = HashSet()
 
-    constructor(img: BufferedImage) {
-        classify(img)
+    fun getBounds(): HashMap<Int, HashSet<Point<Int, Int>>> {
+        return bounds
     }
+
+    //    fun rotate(x: Int, y: Int, ()->B)
+    private fun setBounds(zones: HashMap<Int, HashMap<Int, HashSet<Point<Int, Int>>>>) {
+        val move = PointSetUtil.getMove()
+        var pointNearby: TriPoint<Int, Int>
+        var x = 0
+        var y = 0
+        zones?.forEach { itm ->
+            bounds[itm.key] = HashSet()
+            itm.value?.forEach { other ->
+                other.value?.forEach { p ->
+                    for (idx in move.indices step 2) {
+                        x = p.first + move[idx]
+                        y = p.second + move[idx + 1]
+                        if (x >= 0 && x < markedImageMatrix.size && y >= 0 && y < markedImageMatrix[0].size) {
+                            pointNearby = markedImageMatrix[x][y]
+                            if (pointNearby.mark == itm.key) {
+                                bounds[itm.key]?.add(Point(x, y))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //    width, height, (rgb, mark)
+    fun getMarkedImageTensor(): NDArray {
+        val manager = TensorManager.getManager()
+        val numRows = markedImageMatrix.size
+        val numCols = markedImageMatrix[0].size
+
+        val tensor = manager.create(Shape(numRows.toLong(), numCols.toLong(), 2))
+
+        for (i in markedImageMatrix.indices) {
+            for (j in markedImageMatrix[i].indices) {
+                tensor.set(NDIndex(i.toLong(), j.toLong(), 0), markedImageMatrix[i][j].rgb)
+                tensor.set(NDIndex(i.toLong(), j.toLong(), 1), markedImageMatrix[i][j].mark)
+            }
+        }
+
+        return tensor
+    }
+
+    fun createBufferedDyeingImageFromMatrix(): BufferedImage {
+        val width = markedImageMatrix.size
+        val height = markedImageMatrix[0].size
+        val image = BufferedImage(width, height, BufferedImage.TYPE_INT_RGB)
+
+        for (x in 0 until width) {
+            for (y in 0 until height) {
+                val triPoint = markedImageMatrix[x][y]
+                val color = getColorFromMark(triPoint.mark)
+                image.setRGB(x, y, color.rgb)
+            }
+        }
+        return image
+    }
+
+    private fun getColorFromMark(mark: Int): Color {
+        return when (mark % 6) {
+            0 -> Color.RED
+            1 -> Color.GREEN
+            2 -> Color.BLUE
+            3 -> Color.YELLOW
+            4 -> Color.ORANGE
+            5 -> Color.CYAN
+            else -> Color.BLACK // Default color
+        }
+    }
+
+    fun createBufferedImageFromMatrix(): BufferedImage {
+        val width = markedImageMatrix.size
+        val height = markedImageMatrix[0].size
+        val image = BufferedImage(width, height, BufferedImage.TYPE_INT_RGB)
+
+        for (x in 0 until width) {
+            for (y in 0 until height) {
+                val triPoint = markedImageMatrix[x][y]
+                val rgb = triPoint.rgb
+                image.setRGB(x, y, rgb)
+            }
+        }
+        return image
+    }
+
 
     fun resetImage(img: BufferedImage) {
         classify(img)
@@ -44,45 +145,84 @@ class RawImageClassify {
         }
     }
 
+    fun getMarks(): Int {
+        return markNumber
+    }
+
     //    make img has individual visual object, by similar and relative algorithm
     @TopApi
     fun classify(img: BufferedImage) {
         initImg(img)
+        initConfigOtherConstant()
         similar(img)
         relative()
     }
 
+    private fun initConfigOtherConstant() {
+        VisualConstant.visualMatrixWidthHeight = intArrayOf(markedImageMatrix.size, markedImageMatrix[0].size)
+    }
+
     private fun relative() {
         val pointNumber = HashMap<Int, Int>()
-//        todo : completly don't work
         val zones = HashMap<Int, HashMap<Int, HashSet<Point<Int, Int>>>>()
         statics(pointNumber, zones)
         val sortPoint = sortNode(pointNumber.entries.toTypedArray())
-        disappear(sortPoint, 0.05f, 0, zones)
+        disappear(sortPoint, 0.05f, sortPoint.size - 1, zones)
     }
 
-
     private fun disappear(
-        sortPoints: Array<Map.Entry<Int, Int>>,
-        threshold: Float,
-        relatedMaxOrder: Int,
-        zones: HashMap<Int, HashMap<Int, HashSet<Point<Int, Int>>>>
+        sortPoints: Array<Map.Entry<Int, Int>>,//sort from small to big by value
+        threshold: Float, relatedMaxOrder: Int, zones: HashMap<Int, HashMap<Int, HashSet<Point<Int, Int>>>>
     ) {
         notSee()
         val pointsNumber: HashMap<Int, Int> = toHashMap(sortPoints)
         var minPoint = (sortPoints[relatedMaxOrder].value * threshold).toInt()
         var thresholdOrder = sortPoints.size - 1
         for (idx in sortPoints.indices) {
-            if (sortPoints[idx].value == minPoint) {
-                thresholdOrder = idx
+            if (sortPoints[idx].value >= minPoint) {
+                thresholdOrder = if (sortPoints[idx].value > minPoint) if (idx - 1 >= 0) idx - 1 else 0 else idx
                 break
             }
         }
-        for (idx in thresholdOrder until sortPoints.size) {
+        for (idx in 0..thresholdOrder) {
             val key = sortPoints[idx].key
-            disappear(pointsNumber[key], zones[key], pointsNumber)
+            disappear(key, zones[key], pointsNumber, minPoint)
+        }
+//        markNumber -= thresholdOrder
+        val beg = thresholdOrder + 1
+        for (idx in beg until sortPoints.size) {
+            markSet.add(sortPoints[idx].key)
         }
 
+        setBounds(zones)
+    }
+
+    private fun fillConnects(
+        zones: HashMap<Int, HashMap<Int, HashSet<Point<Int, Int>>>>, remaining: HashSet<Int>
+    ) {
+        val itr = zones.iterator()
+        var next: Map.Entry<Int, HashMap<Int, HashSet<Point<Int, Int>>>>
+        connects.clear()
+        while (itr.hasNext()) {
+            next = itr.next()
+            if (!remaining.contains(next.key)) {
+                itr.remove()
+                continue
+            }
+            val vluItr = next.value.iterator()
+            while (vluItr.hasNext()) {
+                if (!remaining.contains(vluItr.next().key)) {
+                    vluItr.remove()
+                }
+            }
+        }
+        zones.forEach { ent ->
+            val set = HashSet<Int>()
+            ent.value.forEach {
+                set.add(it.key)
+            }
+            connects[ent.key] = set
+        }
     }
 
     private fun toHashMap(pointsNumber: Array<Map.Entry<Int, Int>>): HashMap<Int, Int> {
@@ -95,44 +235,49 @@ class RawImageClassify {
 
 
     private fun disappear(
-        mark: Int?, zones: HashMap<Int, HashSet<Point<Int, Int>>>?, pointsNumber: HashMap<Int, Int>
+        mark: Int?, receiver: HashMap<Int, HashSet<Point<Int, Int>>>?, pointsNumber: HashMap<Int, Int>, minPoint: Int
     ) {
-        if (mark == null || zones == null) return
-        val divide: IntArray = divideTo(pointsNumber[mark]!!, zones, pointsNumber)
-        for (nmk in zones.keys) {
-            divide(mark, pointsNumber[mark]!!, nmk, zones)
+        if (mark == null || receiver == null) return
+        val divide: IntArray = divideTo(pointsNumber[mark]!!, receiver, pointsNumber, minPoint)
+        if (divide.isNotEmpty()) {
+            for (idx in divide.indices step 2) {
+                divide(mark, divide[idx + 1], divide[idx], receiver)
+            }
             pointsNumber.remove(mark)
-            zones.remove(mark)
         }
     }
 
-    private fun divide(omk: Int, all: Int, nmk: Int, zones: HashMap<Int, HashSet<Point<Int, Int>>>) {
+    private fun divide(oldMark: Int, all: Int, nmk: Int, zones: HashMap<Int, HashSet<Point<Int, Int>>>) {
+        if (all <= 0) return
         val probability = DoubleArray(8) { 1 / 8.0 }
-        var countr = 0
-        val nps: Queue<Point<Int, Int>> = LinkedList()
-        for (pts in zones[omk]!!) {
-            nps.add(pts)
-        }
+        var counter = 0
+        val nextPoints = zones[oldMark]?.toTypedArray()?.toMutableList() ?: return
         val move = PointSetUtil.getMove()
-        while (nps.size > 0 && countr < all) {
-            val pot = nps.poll()
+        var idx = 0
+        var xpo: Int
+        var ypo: Int
+        while (idx < nextPoints.size && counter < all) {
+            val pot = nextPoints[idx]
             var index = 0
-            for (idx in probability.indices) {
+            for (jdx in probability.indices) {
                 index = RandomUtil.geneIndexByProbability(probability)
+                xpo = pot.first + move[2 * index]
+                ypo = pot.second + move[2 * jdx + 1]
                 try {
-                    val trp = markedImageMatrix[pot.first + move[2 * index]][pot.second + move[2 * idx + 1]]
+                    val trp = markedImageMatrix[xpo][ypo]
                     if (trp.mark != nmk) {
                         trp.mark = nmk
-                        nps.add(Point(pot.first + move[2 * index], pot.second + move[2 * idx + 1]))
+                        nextPoints.add(Point(xpo, ypo))
+                        counter++
                     } else {
                         dec(probability, index)
                     }
-                    countr++
-                    if (countr == all) break
+                    if (counter == all) break
                 } catch (e: ArrayIndexOutOfBoundsException) {
                     continue
                 }
             }
+            idx++
         }
 
     }
@@ -149,28 +294,34 @@ class RawImageClassify {
 
     }
 
+    /*
+    ret [mk, num]
+     */
     private fun divideTo(
-        all: Int, zones: HashMap<Int, HashSet<Point<Int, Int>>>, pointsNumber: HashMap<Int, Int>
+        all: Int, zones: HashMap<Int, HashSet<Point<Int, Int>>>, pointsNumber: HashMap<Int, Int>, minPoint: Int
     ): IntArray {
-        val rst = IntArray(zones.size * 2) { 0 }
+        val rst = ArrayList<Int>()
         var sum = 0
+        var num = 0
         zones.forEach { (kye, vlu) ->
-            sum += pointsNumber[kye] ?: 0
+            num = pointsNumber[kye] ?: 0
+            if (num > minPoint) {
+                sum += num
+            }
         }
-        var idx = 0
+        var sum2 = 0
         for (key in zones.keys) {
-            rst[idx * 2] = key
-            rst[idx * 2 + 1] = (all * (pointsNumber[key] ?: 0) / sum.toDouble()).toInt()
-            idx++
+            if (pointsNumber[key] ?: 0 > minPoint) {
+                rst.add(key)
+                num = all * (pointsNumber[key] ?: 0) / sum.toDouble().toInt()
+                rst.add(num)
+                sum2 += num
+            }
         }
-        sum = 0
-        for (idx in 0 until zones.size) {
-            sum += rst[idx * 2 + 1]
+        if (sum2 != all && rst.size > 0) {
+            rst[rst.size - 1] += all - sum2
         }
-        if (sum != all) {
-            rst[rst.size - 1] += all - sum
-        }
-        return rst
+        return rst.toIntArray()
     }
 
     private fun notSee(dataMatrix: Array<Array<TriPoint<Int, Int>>> = this.markedImageMatrix) {
@@ -430,10 +581,10 @@ class RawImageClassify {
 
 
     private fun similar(img: BufferedImage) {
-        var mark = 0
+        markNumber = 0
         var average = HashMap<Int, IntArray>()
         val counter = HashMap<Int, Int>()
-        for (idx in 0 until markedImageMatrix.size) {
+        for (idx in markedImageMatrix.indices) {
             for (jdx in 0 until markedImageMatrix[0].size) {
                 nearby(idx, jdx, average, img, counter)
                 var mindiff = MAX_DIFF
@@ -445,9 +596,12 @@ class RawImageClassify {
                     }
                 }
                 if (mindiff >= MAX_DIFF) {// deal with (0,0)
-                    markedImageMatrix[idx][jdx].mark = mark++
+                    markedImageMatrix[idx][jdx].mark = markNumber++
                 }
             }
+        }
+        if (markNumber != 0) {
+            markNumber--
         }
     }
 
@@ -503,5 +657,4 @@ class RawImageClassify {
         average[mark] = ave
         counter[mark] = counter.getOrDefault(mark, 0) + 1
     }
-
 }

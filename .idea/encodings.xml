@@ -24,6 +24,8 @@
     <file url="file://$PROJECT_DIR$/test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/draw/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/draw/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/entropyreducer/rememberlack/RememberFrame.kt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/modelmachine/parser/tmp/draft" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tvr-core/src/main/java/com/treevalue/robot/test/data.txt" charset="UTF-8" />

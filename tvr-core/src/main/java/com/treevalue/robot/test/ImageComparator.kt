@@ -3,10 +3,10 @@ package com.treevalue.robot.test
 import ai.djl.ndarray.NDArray
 import ai.djl.ndarray.types.DataType
 import ai.djl.ndarray.types.Shape
-import com.treevalue.robot.algorithm.mergeSort
 import com.treevalue.robot.data.Point
 import com.treevalue.robot.data.tree.QuadTree
 import com.treevalue.robot.data.tree.Rectangle
+import com.treevalue.robot.ext.mergeSort
 import com.treevalue.robot.tensor.transfer.TensorManager
 import java.awt.image.BufferedImage
 import java.lang.Math.sqrt

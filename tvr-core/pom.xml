@@ -175,6 +175,16 @@
             <artifactId>kafka-clients</artifactId>
             <version>3.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>21-ea+24</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21-ea+24</version>
+        </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.apache.kafka</groupId>-->
         <!--            <artifactId>kafka_2.13</artifactId>-->

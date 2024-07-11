@@ -15,12 +15,14 @@
         <module name="customer-service" />
         <module name="tvr-search-service" />
         <module name="tvr-gateway-service" />
+        <module name="tvr-net" />
+        <module name="draw" />
         <module name="tvr-resource-service" />
         <module name="account-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="tvr-net" target="17" />
+      <module name="draw" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -1832,3 +1832,51 @@ Exception raised from applySelect at C:\actions-runner\_work\pytorch\pytorch\bui
 2024-06-15 18:02:42 [main] INFO  ai.djl.pytorch.engine.PtEngine - PyTorch graph executor optimizer is enabled, this may impact your inference latency and throughput. See: https://docs.djl.ai/docs/development/inference_performance_optimization.html#graph-executor-optimization
 2024-06-15 18:02:42 [main] INFO  ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 8
 2024-06-15 18:02:42 [main] INFO  ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 4
+2024-06-24 10:32:23 [main] DEBUG ai.djl.engine.Engine - Registering EngineProvider: PyTorch
+2024-06-24 10:32:23 [main] DEBUG ai.djl.engine.Engine - Found default engine: PyTorch
+2024-06-24 10:32:24 [main] DEBUG ai.djl.util.cuda.CudaUtils - No cudart library found in path.
+2024-06-24 10:32:24 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Using cache dir: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64
+2024-06-24 10:32:24 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\asmjit.dll
+2024-06-24 10:32:24 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\c10.dll
+2024-06-24 10:32:24 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\libiomp5md.dll
+2024-06-24 10:32:24 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\libiompstubs5md.dll
+2024-06-24 10:32:24 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\uv.dll
+2024-06-24 10:32:24 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\fbgemm.dll
+2024-06-24 10:32:24 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\torch_cpu.dll
+2024-06-24 10:32:26 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\torch.dll
+2024-06-24 10:32:26 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\0.28.0-djl_torch.dll
+2024-06-24 10:32:26 [main] INFO  ai.djl.pytorch.engine.PtEngine - PyTorch graph executor optimizer is enabled, this may impact your inference latency and throughput. See: https://docs.djl.ai/docs/development/inference_performance_optimization.html#graph-executor-optimization
+2024-06-24 10:32:26 [main] INFO  ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 8
+2024-06-24 10:32:26 [main] INFO  ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 4
+2024-06-24 10:35:06 [main] DEBUG ai.djl.engine.Engine - Registering EngineProvider: PyTorch
+2024-06-24 10:35:06 [main] DEBUG ai.djl.engine.Engine - Found default engine: PyTorch
+2024-06-24 10:35:06 [main] DEBUG ai.djl.util.cuda.CudaUtils - No cudart library found in path.
+2024-06-24 10:35:06 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Using cache dir: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64
+2024-06-24 10:35:06 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\asmjit.dll
+2024-06-24 10:35:06 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\c10.dll
+2024-06-24 10:35:06 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\libiomp5md.dll
+2024-06-24 10:35:06 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\libiompstubs5md.dll
+2024-06-24 10:35:06 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\uv.dll
+2024-06-24 10:35:06 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\fbgemm.dll
+2024-06-24 10:35:06 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\torch_cpu.dll
+2024-06-24 10:35:07 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\torch.dll
+2024-06-24 10:35:07 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\0.28.0-djl_torch.dll
+2024-06-24 10:35:07 [main] INFO  ai.djl.pytorch.engine.PtEngine - PyTorch graph executor optimizer is enabled, this may impact your inference latency and throughput. See: https://docs.djl.ai/docs/development/inference_performance_optimization.html#graph-executor-optimization
+2024-06-24 10:35:07 [main] INFO  ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 8
+2024-06-24 10:35:07 [main] INFO  ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 4
+2024-06-24 10:51:43 [main] DEBUG ai.djl.engine.Engine - Registering EngineProvider: PyTorch
+2024-06-24 10:51:43 [main] DEBUG ai.djl.engine.Engine - Found default engine: PyTorch
+2024-06-24 10:51:43 [main] DEBUG ai.djl.util.cuda.CudaUtils - No cudart library found in path.
+2024-06-24 10:51:43 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Using cache dir: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64
+2024-06-24 10:51:43 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\asmjit.dll
+2024-06-24 10:51:43 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\c10.dll
+2024-06-24 10:51:43 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\libiomp5md.dll
+2024-06-24 10:51:43 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\libiompstubs5md.dll
+2024-06-24 10:51:43 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\uv.dll
+2024-06-24 10:51:43 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\fbgemm.dll
+2024-06-24 10:51:43 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\torch_cpu.dll
+2024-06-24 10:51:44 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\torch.dll
+2024-06-24 10:51:44 [main] DEBUG ai.djl.pytorch.jni.LibUtils - Loading native library: C:\Users\wyhee\.djl.ai\pytorch\2.2.2-cpu-win-x86_64\0.28.0-djl_torch.dll
+2024-06-24 10:51:44 [main] INFO  ai.djl.pytorch.engine.PtEngine - PyTorch graph executor optimizer is enabled, this may impact your inference latency and throughput. See: https://docs.djl.ai/docs/development/inference_performance_optimization.html#graph-executor-optimization
+2024-06-24 10:51:44 [main] INFO  ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 8
+2024-06-24 10:51:44 [main] INFO  ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 4
