@@ -5,17 +5,21 @@ class Tensor<T> {
         private set
     private lateinit var data: MutableList<T>
 
+    constructor() {
+        throw Exception("can't use space constructor function")
+    }
+
     constructor(shape: List<Int>, data: MutableList<T>) {
         this.shape = shape
         this.data = data
     }
 
-    init {
-        require(shape.isNotEmpty()) { "Shape must not be empty" }
-        val expectedSize = shape.reduce { acc, i -> acc * i }
-        require(data.size == expectedSize) { "Data size does not match shape" }
-    }
-
+//    init {
+//        require(shape.isNotEmpty()) { "Shape must not be empty" }
+//        val expectedSize = shape.reduce { acc, i -> acc * i }
+//        require(data.size == expectedSize) { "Data size does not match shape" }
+//    }
+//
     operator fun get(vararg indices: Int): T {
         require(indices.size == shape.size) { "Number of indices must match the tensor's shape" }
         val index = calculateIndex(indices)
