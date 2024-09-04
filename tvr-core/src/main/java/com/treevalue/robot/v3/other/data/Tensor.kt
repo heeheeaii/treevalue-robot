@@ -1,20 +1,47 @@
-package com.treevalue.robot.stringBuilder.data
+package com.treevalue.robot.v3.other.data
 
-class Tensor<T> {
+class Tensor<T> : Iterator<T> {
     lateinit var shape: List<Int>
         private set
     private lateinit var data: MutableList<T>
+    private var itorIdx = 0;
+    var size = 0;
 
     constructor() {
         throw Exception("can't use space constructor function")
     }
 
     constructor(shape: List<Int>, data: MutableList<T>) {
+        size = shape.reduce { acc, it -> acc + it }
+        require(size == data.size) { "data number size error" }
         this.shape = shape
         this.data = data
+
     }
 
-//    init {
+    override fun equals(other: Any?): Boolean {
+        if (other == null || other !is Tensor<*>) return false
+        if (this === other) return true
+        var idx = 0;
+        for (itm in other) {
+            if (idx < data.size) {
+                if (itm != data[idx++]) return false
+            }
+        }
+        return true
+    }
+
+    override fun hasNext(): Boolean {
+        return itorIdx < data.size
+    }
+
+    override fun next(): T {
+        if (!hasNext()) throw NoSuchElementException()
+        return data[itorIdx++]
+    }
+
+
+    //    init {
 //        require(shape.isNotEmpty()) { "Shape must not be empty" }
 //        val expectedSize = shape.reduce { acc, i -> acc * i }
 //        require(data.size == expectedSize) { "Data size does not match shape" }

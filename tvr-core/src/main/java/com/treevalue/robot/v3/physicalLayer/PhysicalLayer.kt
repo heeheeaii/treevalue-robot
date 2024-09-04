@@ -1,11 +1,11 @@
-package com.treevalue.robot.v2.data
+package com.treevalue.robot.v3.physicalLayer
 
-import com.treevalue.robot.stringBuilder.data.Tensor
+import com.treevalue.robot.v3.other.data.Tensor
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicInteger
 
-class Axios<T> {
+class PhysicalLayer<T> {
     private val register: ConcurrentHashMap<String, Int> = ConcurrentHashMap()
     private val timeAutoChange: Long
         get() {
@@ -13,6 +13,7 @@ class Axios<T> {
         }
 
     private val lock: AtomicInteger = AtomicInteger(2)
+//    timestamp sensors for memory
     private val dataHolder: HashMap<Long, LinkedList<Tensor<T>>> = HashMap()
     private var maxIndex: Int = -1;
 
@@ -25,7 +26,7 @@ class Axios<T> {
         maxIndex -= 1
     }
 
-    fun add(idx: Int, senseData: Tensor<T>) {
+    private fun add(idx: Int, senseData: Tensor<T>) {
         var timeNow = timeAutoChange
         val data = dataHolder.getOrDefault(timeNow, LinkedList())
         val sen = data.getOrNull(idx)
@@ -52,7 +53,7 @@ class Axios<T> {
 
     companion object {
         fun test1() {
-            val a = Axios<Int>()
+            val a = PhysicalLayer<Int>()
             val t = Tensor<Int>(listOf(1, 2, 3), mutableListOf(1, 2, 3, 4, 5, 6))
             val t2 = Tensor<Int>(listOf(1, 3, 3), mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
             a.add(0, t)
@@ -62,7 +63,7 @@ class Axios<T> {
 
         @JvmStatic
         fun main(args: Array<String>) {
-            val a = Axios<Int>()
+            val a = PhysicalLayer<Int>()
             val t = Tensor<Int>(listOf(1, 2, 3), mutableListOf(1, 2, 3, 4, 5, 6))
             val t2 = Tensor<Int>(listOf(1, 3, 3), mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
             val id = "ttt"
